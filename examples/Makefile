@@ -1,6 +1,11 @@
+SHELL = /usr/bin/zsh
 MAKEFLAGS += -rR
 
 WEBDIR=/mit/sashacf/web_scripts/portfolio
+
+MAGIC=../magic_latex.py
+
+all: emilycf.pdf
 
 %_install: %.html %.pdf
 	cp $< $(WEBDIR)/includes/resume.html
@@ -13,7 +18,7 @@ WEBDIR=/mit/sashacf/web_scripts/portfolio
 	rm $(basename $<).{aux,fdb_latexmk,fls,log}
 
 %.html %.tex :: %.json
-	./magic_latex.py $(basename $<)
+	$(MAGIC) $(basename $<)
 
 .PRECIOUS: %.html
 
