@@ -11,6 +11,7 @@ l_preamble = r"""\documentclass[11pt]{article}
 l_titling = r"""\def\name{{{name}}}
 \def\phone{{{phone}}}
 \def\email{{{email}}}
+\def\github{{{github}}}
 \def\termstreet{{{termstreet}}}
 \def\termcity{{{termcity}}}
 \def\homestreet{{{homestreet}}}
@@ -32,6 +33,10 @@ l_position = r"""\def\employer{{{employer}}}
 l_description = r"""\begin{{position}}
 {}
 \end{{position}}
+
+"""
+
+l_nodescription = r"""\positionnolist{}
 
 """
 
@@ -57,7 +62,7 @@ h_titling = """\
 <td class="email"><a href="mailto:{email}">{email}</a></td>
 <td class="homeaddr">{homestreet}</td></tr>
 <tr><td class="termaddr">{termcity}</td>
-<td></td>
+<td class="github"><a href="{github}">{github}</a></td>
 <td class="homeaddr">{homecity}</td></tr>
 </table>
 
@@ -121,11 +126,14 @@ def main(argv):
                 pos = [p for p in d['positions'] if p['id'] == index][0]
                 latex_out.write(l_position.format(**pos))
                 html_out.write(h_position.format(**pos))
-                l_items, h_items = zip(*((l_itemize.format(i),
-                                          h_itemize.format(i))
-                                         for i in pos['description']))
-                latex_out.write(l_description.format('\n'.join(l_items)))
-                html_out.write(h_description.format('\n'.join(h_items)))
+                if pos['description']:
+                    l_items = (l_itemize.format(i) for i in pos['description'])
+                    h_items = (h_itemize.format(i) for i in pos['description'])
+                    latex_out.write(l_description.format('\n'.join(l_items)))
+                    html_out.write(h_description.format('\n'.join(h_items)))
+                else:
+                    latex_out.write(l_nodescription)
+                    html_out.write(h_description.format(''))
         l_items, h_items = zip(*((l_itemize.format(i), h_itemize.format(i))
                                  for i in d['skills']))
         latex_out.write(l_skills.format('\n'.join(l_items)))

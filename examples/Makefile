@@ -20,7 +20,7 @@ all: emilycf.pdf
 %.html %.tex :: %.json
 	$(MAGIC) $(basename $<)
 
-.PRECIOUS: %.html
+.PRECIOUS: %.html %.pdf
 
 .PHONY: clean distclean
 

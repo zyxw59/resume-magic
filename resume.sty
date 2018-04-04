@@ -30,6 +30,13 @@
     \enditemize
 }
 
+\newcommand{\positionnolist}{
+    \begin{tabu} to \textwidth {@{}X r@{}}
+        \bf \employer & \location \\
+        \title & \dates \\
+    \end{tabu}
+}
+
 \renewcommand\maketitle{
 \begin{center}
     \huge\bfseries \name\\[1em]
@@ -37,7 +44,7 @@
 \begin{tabu} to \textwidth {@{}l X[c] l@{}}
     \bf\uppercase{Term Address} & \phone & \bf\uppercase{Permanent Address} \\
     \termstreet & \tt \email & \homestreet \\
-    \termcity & & \homecity \\
+    \termcity & \tt \github & \homecity \\
 \end{tabu}
 \vspace{1em}
 }
