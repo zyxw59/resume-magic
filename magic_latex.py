@@ -3,9 +3,9 @@ import sys
 import json
 import latexcodec
 
-l_preamble = r"""\documentclass[11pt]{article}
-\usepackage{resume}
-\usepackage[rm]{roboto}
+l_preamble = r"""\documentclass[{fontsize}pt]{{article}}
+\usepackage{{resume}}
+\usepackage[rm]{{roboto}}
 """
 
 l_titling = r"""\def\name{{{name}}}
@@ -115,7 +115,7 @@ def main(argv):
     try:
         inf, html_out, latex_out = load(argv)
         d = json.load(inf)
-        latex_out.write(l_preamble)
+        latex_out.write(l_preamble.format(fontsize=d.get('fontsize', 11)))
         html_out.write(h_preamble)
         latex_out.write(l_titling.format(**d))
         html_out.write(h_titling.format(**d))
