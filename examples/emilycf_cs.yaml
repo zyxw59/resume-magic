@@ -1,0 +1,96 @@
+---
+name: Emily Crandall Fleischman
+phone: "(510) 520–2457"
+email: emilycf@mit.edu
+github: https://github.com/zyxw59/
+termstreet: 259 Saint Paul St.
+termcity: Brookline, MA 02446
+homestreet: 3804 Everett Ave.
+homecity: Oakland, CA 94602
+positions:
+- id: 0
+  employer: Massachusetts Institute of Technology
+  location: Cambridge, MA
+  title: Bachelor of Science in Civil Engineering
+  dates: 2014–June 2019
+  description:
+  - 'Computer Science coursework: Computation Structures, Programming for
+    Engineering (MATLAB)'
+  - Civil Engineering coursework includes significant use of Python and MATLAB
+    for data analysis and visualization.
+- id: 1
+  employer: MIT Department of Economics
+  location: Cambridge, MA
+  title: Undergraduate Researcher
+  dates: August–September 2016
+  description:
+  - Wrote Python code to analyze GPS data from study participants.
+  - Worked with QGIS to visualize GPS data.
+- id: 2
+  employer: Mobile Autonomous Systems Laboratory
+  location: Cambridge, MA
+  title: Participant/Programmer
+  dates: January 2015
+  description:
+  - Learned C++ in one month.
+  - Programmed firmware for robot motors and infrared sensors using C++
+- id: 3
+  employer: Linguistic Sound Change Modeler
+  location: ''
+  title: Python, Go, and Rust
+  dates: 2015–Present
+  description:
+  - Model historical sound changes using regular expressions
+  - Originally written in Python, ported to Go in August 2017
+  - Currently being ported to Rust, with feature improvements
+- id: 4
+  employer: Python-based Zephyr Client
+  location: ''
+  title: Python
+  dates: February 2017
+  description:
+  - A minimalist client to view Zephyr messages.
+  - Terminal-based UI using Urwid
+  - Message handling using asynchronous I/O
+- id: 5
+  employer: Type-agnostic Regex Implementation
+  location: ''
+  title: Rust
+  dates: December 2017
+  description:
+  - Reimplement of a subset of Regex, based on RE2
+  - Allows matching on data of any type, not just strings
+  - Incorporated into the Rust version of Linguistic Sound Change Modeler
+- id: 6
+  employer: Procedural Subway Diagram Generator
+  location: ''
+  title: Go, Rust
+  dates: July 2017–Present
+  description:
+  - Generate subway diagrams using parallel lines with rounded corners
+  - Originally written in Go, currently being ported to Rust
+- id: 7
+  employer: Multi-format Résumé Generator
+  location: ''
+  title: Python, LaTeX, HTML
+  dates: February 2017
+  description:
+  - Generate Résumés in PDF (via \LaTeX) and HTML formats from JSON input
+skills:
+- Self-taught in HTML, JavaScript, PHP, Python, Java, C, C++, Go, and Rust.
+- Familiar with MATLAB and NumPy.
+sections:
+- title: Education
+  positions:
+  - 0
+- title: Personal Projects
+  positions:
+  - 3
+  - 5
+  - 6
+  - 4
+  - 7
+- title: Other Experience
+  positions:
+  - 2
+...

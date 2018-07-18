@@ -17,7 +17,7 @@ all: emilycf.pdf
 	latexmk -pdf $<
 	rm $(basename $<).{aux,fdb_latexmk,fls,log}
 
-%.html %.tex :: %.json
+%.html %.tex :: %.yaml
 	$(MAGIC) $(basename $<)
 
 .PRECIOUS: %.html %.pdf
