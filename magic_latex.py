@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
+import os
 import sys
-import json
+import yaml
 import latexcodec
 
 l_preamble = r"""\documentclass[{fontsize}pt]{{article}}
@@ -102,7 +103,10 @@ def load(argv):
         raise TypeError('{} takes 1 argument but {} were '
                         'given'.format(argv[0], len(argv) - 1))
     if '.' not in name:
-        inf = open(name + '.json')
+        if os.path.isfile(name + '.yaml'):
+            inf = open(name + '.yaml')
+        else:
+            inf = open(name + '.json')
     else:
         inf = open(name)
         name = name.rsplit('.', 1)[0]
@@ -114,7 +118,7 @@ def load(argv):
 def main(argv):
     try:
         inf, html_out, latex_out = load(argv)
-        d = json.load(inf)
+        d = yaml.load(inf)
         latex_out.write(l_preamble.format(fontsize=d.get('fontsize', 11)))
         html_out.write(h_preamble)
         latex_out.write(l_titling.format(**d))
