@@ -15,7 +15,8 @@
             "title": "Bachelor of Science in Civil Engineering",
             "dates": "2014–June 2019",
             "description": [
-                "Computer Science coursework: Computation Structures, Programming for Engineering (MATLAB)"
+                "Computer Science coursework: Computation Structures, Programming for Engineering (MATLAB)",
+                "Civil Engineering coursework includes significant use of Python and MATLAB for data analysis and visualization."
             ]
         },
         {
@@ -100,8 +101,7 @@
     ],
     "skills": [
         "Self-taught in HTML, JavaScript, PHP, Python, Java, C, C++, Go, and Rust.",
-        "Familiar with MATLAB and NumPy.",
-        "Proficient with ArcGIS and Microsoft Excel and Access."
+        "Familiar with MATLAB and NumPy."
     ],
     "sections": [
         {"title": "Education", "positions": [0]},
