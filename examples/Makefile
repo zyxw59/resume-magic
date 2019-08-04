@@ -15,7 +15,6 @@ all: emilycf.pdf
 
 %.pdf: %.tex
 	latexmk -pdf $<
-	rm $(basename $<).{aux,fdb_latexmk,fls,log}
 
 %.html %.tex :: %.yaml
 	$(MAGIC) $(basename $<)
@@ -24,8 +23,8 @@ all: emilycf.pdf
 
 .PHONY: clean distclean
 
-clean:
-	rm *.{aux,fdb_latexmk,fls,html,log,pdf,tex}
+clean: distclean
+	rm -f $(wildcard *.html) $(wildcard *.pdf)
 
 distclean:
-	rm *.{aux,fdb_latexmk,fls,log,tex}
+	rm -f $(wildcard *.aux) $(wildcard *.fdb_latexmk) $(wildcard *.fls) $(wildcard *.log) $(wildcard *.tex)

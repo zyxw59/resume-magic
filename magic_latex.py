@@ -4,8 +4,13 @@ import sys
 import yaml
 import latexcodec
 
-l_preamble = r"""\documentclass[{fontsize}pt]{{article}}
+l_preamble_normal = r"""\documentclass[{fontsize}pt]{{article}}
 \usepackage{{resume}}
+\usepackage[rm]{{roboto}}
+"""
+
+l_preamble_notermaddress = r"""\documentclass[{fontsize}pt]{{article}}
+\usepackage[notermaddress]{{resume}}
 \usepackage[rm]{{roboto}}
 """
 
@@ -119,8 +124,14 @@ def main(argv):
     try:
         inf, html_out, latex_out = load(argv)
         d = yaml.load(inf)
-        latex_out.write(l_preamble.format(fontsize=d.get('fontsize', 11)))
+        if "termstreet" in d or "termcity" in d:
+            latex_out.write(l_preamble_normal.format(fontsize=d.get('fontsize', 11)))
+        else:
+            latex_out.write(l_preamble_notermaddress.format(fontsize=d.get('fontsize', 11)))
         html_out.write(h_preamble)
+
+        d["termstreet"] = d.get("termstreet", "")
+        d["termcity"] = d.get("termcity", "")
         latex_out.write(l_titling.format(**d))
         html_out.write(h_titling.format(**d))
         for sec in d['sections']:

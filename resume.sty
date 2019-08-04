@@ -6,12 +6,16 @@
 %% of the LaTeX Project Public License Distributed from CTAN archives
 %% in directory macros/latex/base/lppl.txt.
 % 
-\ProvidesPackage{resume}[2016/10/02 v0.01 LaTeX package for resumes]
+\ProvidesPackage{resume}[2019/08/04 v0.02 LaTeX package for resumes]
 \RequirePackage[letterpaper,margin=0.75in,bottom=0.6in]{geometry}
 \RequirePackage{tabu}
 \RequirePackage{titlesec}
 \RequirePackage{enumitem}
 \RequirePackage[none]{hyphenat}
+
+\newif\if@termaddress\@termaddresstrue
+\DeclareOption{notermaddress}{\@termaddressfalse}
+\ProcessOptions\relax
 
 \setlength\parindent{0pt}
 \setlist[itemize]{noitemsep, topsep=0pt, leftmargin=*, after=\vspace{1em}}
@@ -41,11 +45,19 @@
 \begin{center}
     \huge\bfseries \name\\[1em]
 \end{center}
-\begin{tabu} to \textwidth {@{}l X[c] l@{}}
+\if@termaddress
+\begin{tabu} to \textwidth {@{}X[l] X[c] X[r]@{}}
     \bf\uppercase{Term Address} & \phone & \bf\uppercase{Permanent Address} \\
     \termstreet & \tt \email & \homestreet \\
     \termcity & \tt \github & \homecity \\
 \end{tabu}
+\else
+\begin{tabu} to \textwidth {@{}X[l] X[c] X[r]@{}}
+    \homestreet & \phone & \\
+    \homecity & \tt \email & \\
+    & \tt \github & \\
+\end{tabu}
+\fi
 \vspace{1em}
 }
 
